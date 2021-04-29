@@ -42,13 +42,17 @@ int main(int argc, char *argv[])
   CPU_SET(0, &mask);
   sched_setaffinity(0, sizeof(cpu_set_t), &mask);
   
-  // TODO: Start time measurement.
+  // Start time measurement.
+  time_snap_t ts;
+  time_snap_start(&ts);
 
   // TODO: Call function LC.
 
-  // TODO: End time measurement.
+  // End time measurement.
+  time_snap_stop(&ts);
   
-  // TODO: Print runtime.
+  // Print runtime.
+  printf("Execution Time : %ld\n", ts.tv_usec);
 
   // Free data structures.
   free1d(y);
