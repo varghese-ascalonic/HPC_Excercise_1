@@ -8,7 +8,7 @@ double const H_k = 5;
 int const MICRO = 1000000;
 
 // implement function LC
-void LC(double **F, double **Y, double **A, double *y, int row, int col)
+void compute_pirk(double **F, double **Y, double **A, double *y, int row, int col)
 {
 	//Calculating the array which stores the product of A and F. Storing the results back in array Y.
  
