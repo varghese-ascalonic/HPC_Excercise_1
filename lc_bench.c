@@ -4,8 +4,38 @@
 
 #include "util.h"
 
-// TODO implement function LC
+double const H_k = 5;
+int const MICRO = 1000000;
 
+// implement function LC
+void LC(double **F, double **Y, double **A, double *y, int row, int col)
+{
+	//Calculating the array which stores the product of A and F. Storing the results back in array Y.
+ 
+	for (int i = 0; i < row; i++)
+	    for (int j = 0; j < col; j++)
+	        Y[i][j] = A[i][j] * F[i][j];
+ 
+	// Doing the consecutive sum of the rows in the same array Y.
+	// So the new_row[i] = old_row[i] + old_row[i-1] except i=0
+	// And then multiplying the constant H_k
+ 
+	for (int i = 0; i < row; i++){
+	    for (int j = 0; j < col; j++){
+	    	if (i == 0)
+	    	    continue;
+	        Y[i][j] = Y[i][j] + F[i-1][j];
+	        Y[i][j] = H_k * Y[i][j];
+	    }    
+	}
+ 
+	// Finally adding array y to each row of Y to get the final result
+ 
+ 
+	for (int i = 0; i < row; i++)
+	    for (int j = 0; j < col; j++)
+	    	Y[i][j] += y[j];	
+}
 
 int main(int argc, char *argv[])
 {
@@ -46,13 +76,14 @@ int main(int argc, char *argv[])
   time_snap_t ts;
   time_snap_start(&ts);
 
-  // TODO: Call function LC.
+  // Call function LC.
+  compute_pirk(F, Y, A, y, s, n);
 
   // End time measurement.
   time_snap_stop(&ts);
   
   // Print runtime.
-  printf("Execution Time : %ld\n", ts.tv_usec);
+  printf("Execution Time : %ld\n microseconds", ts.tv_usec);
 
   // Free data structures.
   free1d(y);
