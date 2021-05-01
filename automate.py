@@ -10,7 +10,7 @@ execution_times = np.zeros(times)
 
 with open('runtimes.txt', 'a') as runtime_file:
     for i in range(times):
-        process = Popen(["./a.out", "9000000", "4"], stdout=PIPE)
+        process = Popen(["./a.out", "100", "4"], stdout=PIPE)
         (output, err) = process.communicate()
         execution_times[i] = int(output)
         runtime_file.write(output + "\n")
