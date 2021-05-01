@@ -31,10 +31,29 @@ void compute_pirk(double **F, double **Y, double **A, double *y, int row, int co
  
 	// Finally adding array y to each row of Y to get the final result
  
- 
 	for (int i = 0; i < row; i++)
 	    for (int j = 0; j < col; j++)
 	    	Y[i][j] += y[j];	
+}
+
+void compute_pirk_2(double **F, double **Y, double **A, double *y, int row, int col)
+{
+  for(int i=0; i<row; i++) 
+    Y[i][0] = y[i];
+
+  for(int k=0; k<col; k++)
+  {
+    for(int l=0; l<row; l++)
+    {
+      double sum = 0.0;
+      for(int i=0; i<row; i++)
+      {
+        if(k == 0) continue;
+        sum += A[l][i] * F[i][k-1];
+      }
+      Y[l][k] = y[k] + H_k * sum;
+    }
+  }
 }
 
 int main(int argc, char *argv[])
@@ -77,7 +96,7 @@ int main(int argc, char *argv[])
   time_snap_start(&ts);
 
   // Call function LC.
-  compute_pirk(F, Y, A, y, s, n);
+  compute_pirk_2(F, Y, A, y, s, n);
 
   // End time measurement.
   time_snap_stop(&ts);
