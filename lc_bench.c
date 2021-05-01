@@ -80,10 +80,10 @@ int main(int argc, char *argv[])
   compute_pirk(F, Y, A, y, s, n);
 
   // End time measurement.
-  time_snap_stop(&ts);
+  // time_snap_stop(&ts);
   
   // Print runtime.
-  printf("%ld", ts.tv_sec);
+  // printf("%ld", ts.tv_sec);
 
   // Free data structures.
   free1d(y);
