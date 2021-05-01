@@ -13,5 +13,8 @@ for i in range(times):
     (output, err) = process.communicate()
     execution_times[i] = int(output)
 
-print("Minimum : " + str(np.amin(execution_times)))
-print("Maximum : " + str(np.amin(execution_times)))
+print("Minimum          :   " + str(np.amin(execution_times)))
+print("25th percentile  :   " + str(np.percentile(execution_times, 25)))
+print("50th percentile  :   " + str(np.percentile(execution_times, 50)))
+print("75th percentile  :   " + str(np.percentile(execution_times, 75)))
+print("Maximum          :   " + str(np.amax(execution_times)))
