@@ -83,7 +83,7 @@ int main(int argc, char *argv[])
   time_snap_stop(&ts);
   
   // Print runtime.
-  printf("%ld", ts.tv_usec);
+  printf("%ld", ts.tv_sec);
 
   // Free data structures.
   free1d(y);
