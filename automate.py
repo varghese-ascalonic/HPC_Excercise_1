@@ -8,10 +8,13 @@ times = int(sys.argv[1])
 
 execution_times = np.zeros(times)
 
-for i in range(times):
-    process = Popen(["./a.out", "100", "4"], stdout=PIPE)
-    (output, err) = process.communicate()
-    execution_times[i] = int(output)
+with open('runtimes.txt', 'a') as runtime_file:
+    for i in range(times):
+        process = Popen(["./a.out", "100", "4"], stdout=PIPE)
+        (output, err) = process.communicate()
+        execution_times[i] = int(output)
+        runtime_file.write(output + "\n")
+
 
 print("Minimum          :   " + str(np.amin(execution_times)))
 print("25th percentile  :   " + str(np.percentile(execution_times, 25)))
