@@ -4,7 +4,7 @@
 
 #include "util.h"
 
-double const H_k = 5;
+double const H_k = 0.05;
 int const MICRO = 1000000;
 
 // implement function LC
