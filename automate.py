@@ -13,5 +13,5 @@ for i in range(times):
     (output, err) = process.communicate()
     execution_times[i] = int(output)
 
-print("Minimum : " + np.amin(execution_times))
-print("Maximum : " + np.amax(execution_times))
+print("Minimum : " + str(np.amin(execution_times)))
+print("Maximum : " + str(np.amin(execution_times)))
