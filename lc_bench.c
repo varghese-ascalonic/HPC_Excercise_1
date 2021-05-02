@@ -127,7 +127,7 @@ int main(int argc, char *argv[])
 	int time_taken = time_snap_stop(&start_time);
 
 	// TODO: Print runtime.
-	printf("Time taken : %d", time_taken);
+	printf("%d", time_taken);
 
 	// TODO: Free data structures.
 	free2d(F);
