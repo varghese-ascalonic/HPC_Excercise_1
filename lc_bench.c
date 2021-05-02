@@ -118,7 +118,7 @@ int main(int argc, char *argv[])
 	time_snap_start(&start_time);
 
 	// TODO: Call function LC.
-	LC_reverse(F, Y, A, y, s, n);
+	LC(F, Y, A, y, s, n);
 	prettyPrint(Y, s, n);
 
 
