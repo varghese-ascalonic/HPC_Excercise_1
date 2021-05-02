@@ -11,14 +11,12 @@ int const MICRO = 1000000;
 void compute_pirk(double **F, double **Y, double **A, double *y, int row, int col)
 {
 	//Calculating the array which stores the product of A and F. Storing the results back in array Y.
- 
-	//Calculating the array which stores the product of A and F. Storing the results back in array Y.
 	int sum = 0;
-	for (int i = 0 ; i < row ; i++ )
+	for ( i = 0 ; i < row ; i++ )
     {
-      for (int j = 0 ; j < col ; j++ )
+      for ( j = 0 ; j < col ; j++ )
       {
-        for (int k = 0 ; k < row ; k++ )
+        for ( k = 0 ; k < row ; k++ )
         {
           sum = sum + A[i][k]*F[k][j];
         }
