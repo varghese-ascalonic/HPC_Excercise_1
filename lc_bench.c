@@ -119,7 +119,7 @@ int main(int argc, char *argv[])
 
 	// TODO: Call function LC.
 	LC(F, Y, A, y, s, n);
-	prettyPrint(Y, s, n);
+	//prettyPrint(Y, s, n);
 
 
 	// TODO: End time measurement.
